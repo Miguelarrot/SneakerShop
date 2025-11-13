@@ -1,0 +1,11 @@
+.about-container {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+.fotoCv {
+    width: 80%;
+    height: auto;
+    padding-left: 2rem;
+
+}

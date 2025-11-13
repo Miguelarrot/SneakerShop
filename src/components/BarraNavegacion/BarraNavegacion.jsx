@@ -1,23 +1,23 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ModalCarrito from "../ModalCarrito/ModalCarrito";
+import { useCart } from "../../context/CartContext";
+import ModalSignIn from "../ModalSignIn/modalSignIn";
 
 function BarraNavegacion() {
-  const [searchTerm, setSearchTerm] = useState("");
   const [showCart, setShowCart] = useState(false);
+  const { getTotalItems } = useCart();
+  const [showSignIn, SetShowSignIn] = useState(false)
   
   const handleCartClick = (e) => {
     e.preventDefault();
     setShowCart(true);
   };
 
-  const handleSearch = (e) => {
+  const handleSignInClick = (e)=>{
     e.preventDefault();
-    if (searchTerm.trim()) {
-      console.log("Buscando:", searchTerm);
-      // Aquí puedes implementar la lógica de búsqueda
-    }
-  };
+    SetShowSignIn(true);
+  }
 
   return (
     <>
@@ -56,26 +56,23 @@ function BarraNavegacion() {
                   style={{ border: 'none', background: 'none' }}
                 >
                   🛒 Carrito
-                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    5
-                    <span className="visually-hidden">items en el carrito</span>
-                  </span>
+                  {getTotalItems() > 0 && (
+                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      {getTotalItems()}
+                      <span className="visually-hidden">items en el carrito</span>
+                    </span>
+                  )}
                 </button>
               </li>
             </ul>
-            <form className="d-flex" role="search" onSubmit={handleSearch}>
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
+            <div>
+              <button
+              className="nav-link bt bt-link position-center"
+              onClick={handleSignInClick}
+              style={{border:"none", marginTop:"2px"}}>
+                🔐Iniciar Sesión
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </nav>
@@ -83,6 +80,10 @@ function BarraNavegacion() {
       <ModalCarrito
         show={showCart}
         onClose={() => setShowCart(false)}
+      />
+      <ModalSignIn
+      show={showSignIn}
+      onClose={()=> SetShowSignIn(false)}
       />
     </>
   );
