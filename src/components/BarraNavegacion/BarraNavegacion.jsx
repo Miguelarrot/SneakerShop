@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import ModalCarrito from "../ModalCarrito/ModalCarrito";
 import { useCart } from "../../context/CartContext";
-import ModalSignIn from "../ModalSignIn/modalSignIn";
+import ModalSignIn from "../ModalSignIn/ModalSignIn";
 
 function BarraNavegacion() {
   const [showCart, setShowCart] = useState(false);
