@@ -1,0 +1,72 @@
+.filtros-container {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filtros-titulo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #007bff;
+}
+
+.filtro-grupo {
+  margin-bottom: 1.5rem;
+}
+
+.filtro-label {
+  display: block;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.filtro-input,
+.filtro-select {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.filtro-input:focus,
+.filtro-select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.rango-precio {
+  margin-bottom: 0.5rem;
+}
+
+.form-range {
+  width: 100%;
+  margin-bottom: 0.3rem;
+}
+
+.form-range::-webkit-slider-thumb {
+  background: #007bff;
+}
+
+.form-range::-moz-range-thumb {
+  background: #007bff;
+}
+
+small.text-muted {
+  display: block;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filtros-container {
+    margin-bottom: 1rem;
+  }
+}

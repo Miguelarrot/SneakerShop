@@ -7,7 +7,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
-  // Simular datos de productos (puedes reemplazar esto con datos reales)
+  // Simular datos de productos
   useEffect(() => {
     const products = {
       1: {
@@ -15,7 +15,7 @@ function ProductDetail() {
         titulo: "Nike Air Max",
         descripcion: "Las zapatillas Nike Air Max ofrecen comodidad excepcional con su tecnología de amortiguación de aire visible.",
         precio: 129.99,
-        imagen: "https://via.placeholder.com/500x400/007bff/ffffff?text=Nike+Air+Max",
+        imagen: "../public/productos/zapatosNike.png",
         detalles: [
           "Material exterior: Sintético y malla transpirable",
           "Suela: Goma resistente al desgaste",
@@ -31,7 +31,7 @@ function ProductDetail() {
         titulo: "Adidas Ultraboost",
         descripcion: "Zapatillas de running con tecnología Boost para máxima respuesta de energía.",
         precio: 149.99,
-        imagen: "https://via.placeholder.com/500x400/28a745/ffffff?text=Adidas+Ultraboost",
+        imagen: "src/assets/productos/zapatosNike.png",
         detalles: [
           "Tecnología Boost para máxima amortiguación",
           "Upper de Primeknit adaptable",
@@ -49,13 +49,13 @@ function ProductDetail() {
       titulo: "Producto No Encontrado",
       descripcion: "Este producto no está disponible actualmente.",
       precio: 0,
-      imagen: "https://via.placeholder.com/500x400/6c757d/ffffff?text=Producto+No+Disponible",
+      imagen: "src/assets/productos/zapatosNike.png",
       detalles: [],
       disponible: false,
       stock: 0
     });
   }, [id]);
-
+//arreglar--no añade añ carrito de compra
   const handleAddToCart = () => {
     alert(`Añadido al carrito: ${quantity} x ${product.titulo}`);
   };

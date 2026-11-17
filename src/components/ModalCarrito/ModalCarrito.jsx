@@ -1,53 +1,13 @@
-import { useState } from "react";
+import { useCart } from "../../context/CartContext";
 
 function ModalCarrito({ show, onClose }) {
-  const [cartItems, setCartItems] = useState([
-    // Datos de ejemplo del carrito
-    {
-      id: 1,
-      titulo: "Nike Air Max",
-      precio: 129.99,
-      cantidad: 2,
-      imagen: "https://via.placeholder.com/80x80/007bff/ffffff?text=Nike",
-      stock: 15
-    },
-    {
-      id: 2,
-      titulo: "Adidas Ultraboost",
-      precio: 149.99,
-      cantidad: 1,
-      imagen: "https://via.placeholder.com/80x80/28a745/ffffff?text=Adidas",
-      stock: 8
-    }
-  ]);
-
-  const calcularTotal = () => {
-    return cartItems.reduce((total, item) => total + (item.precio * item.cantidad), 0).toFixed(2);
-  };
-
-  const aumentarCantidad = (id) => {
-    setCartItems(prevItems =>
-      prevItems.map(item =>
-        item.id === id && item.cantidad < item.stock
-          ? { ...item, cantidad: item.cantidad + 1 }
-          : item
-      )
-    );
-  };
-
-  const disminuirCantidad = (id) => {
-    setCartItems(prevItems =>
-      prevItems.map(item =>
-        item.id === id && item.cantidad > 1
-          ? { ...item, cantidad: item.cantidad - 1 }
-          : item
-      )
-    );
-  };
-
-  const eliminarProducto = (id) => {
-    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
-  };
+  const { 
+    cartItems, 
+    calcularTotal, 
+    aumentarCantidad, 
+    disminuirCantidad, 
+    eliminarProducto 
+  } = useCart();
 
   if (!show) return null;
 
@@ -72,7 +32,7 @@ function ModalCarrito({ show, onClose }) {
                 type="button"
                 className="btn-close"
                 onClick={onClose}
-                aria-label="Close"
+                aria-label="Cerrar"
               ></button>
             </div>
             <div className="modal-body">
